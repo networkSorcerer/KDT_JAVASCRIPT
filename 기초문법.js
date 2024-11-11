@@ -15,3 +15,9 @@
 let x = 10; //변수를 선언하고 데이터의 타입은 10이 대이될때 데이터형이 결정됨
 x = 200;
 console.log(typeof x);
+
+const y = 10;
+console.log(y);
+var z;
+console.log(z);
+let z = 100;
