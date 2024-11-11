@@ -51,3 +51,11 @@ for (const e of brands) {
   console.log(e);
 }
 // for ~ in : 객체의 속성을 반복하는데 사용
+const person = {
+  name: "장원영",
+  age: 20,
+  addr: "서울시 강남구 역삼동",
+};
+for (const key in person) {
+  console.log(person[key]);
+}
