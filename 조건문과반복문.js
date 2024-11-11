@@ -46,7 +46,8 @@ const brands = [
 for (let i = 0; i < brands.length; i++) {
   console.log(brands[i]);
 }
-// for ~ of
+// for ~ of : 이터러블 객체를 반복 순회
 for (const e of brands) {
   console.log(e);
 }
+// for ~ in : 객체의 속성을 반복하는데 사용
