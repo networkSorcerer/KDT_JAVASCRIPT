@@ -13,3 +13,39 @@ console.log(str2);
 let dan = 3;
 let gugu = 8;
 console.log(`${dan}*${gugu} = ${dan * gugu}`);
+
+// 숫자형 (Number) : 자바스크립트는 모든 숫자를 하나의 숫자형(Number)로 다룸. 실수는 부동소수점으로 표현
+// let x = 0.1;
+// let y = 0.3;
+
+// console.log(x + y);
+
+// let xe = 0.0;
+// for (1 = 0; i < 100; i++) {
+//   xe += 0.01;
+// }
+// console.log(xe);
+
+const Decimal = require("decimal.js"); // require 오타 수정
+let x = new Decimal(0.0);
+
+for (let i = 0; i < 100; i++) {
+  // let을 사용해 i 선언
+  x = x.plus(0.01);
+}
+
+console.log(x.toString()); // 정확한 결과를 위해 toString() 사용
+
+// 논리형 : 참 과 거짓의 값만 가지는 타입
+let age = 18;
+let isAdult = age > 19 ? true : false;
+if (isAdult) console.log("당신은 성인입니다. ");
+else console.log("당신은 미성년자입니다. ");
+
+// undefined : 값이 할당되지 않음을 의미
+let empty;
+console.log(empty);
+
+// null : 변수나 상수를 선언하고 의도적으로 값을 비워둘때 사용
+let empty2 = null;
+console.log(empty2);
