@@ -29,6 +29,24 @@
 // }
 // console.log(`오늘은 ${day} 입니다.`);
 
-for (let i = 0; i < 100; i++) {
-  console.log(i);
+// for (let i = 0; i < 100; i++) {
+//   console.log(i);
+// }
+
+const brands = [
+  "애플",
+  "구글",
+  "엔비디아",
+  "현대자동차",
+  "테슬라",
+  "아마존",
+  "스페이스X",
+];
+// 기본적인 순회 방식
+for (let i = 0; i < brands.length; i++) {
+  console.log(brands[i]);
+}
+// for ~ of
+for (const e of brands) {
+  console.log(e);
 }
