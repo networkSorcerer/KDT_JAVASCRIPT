@@ -31,3 +31,9 @@ let memberInfo = {
 };
 
 console.log(memberInfo.getInfo());
+
+// 비교 연산자 : 자바스크립트에서는 동등연산자와 일치 연산자가 있음
+console.log(1 == "1"); // true , 동등 연산자, 값이 같은 지 확인
+console.log(1 === "1"); // false, 일치 연산자 , 값과 타입이 같은지 확인
+console.log(1 != "1"); // false, 동등연산자, 값이 같은지 확인
+console.log(1 !== "1"); //true, 일치 연산자,  값과 타입이 같은지 확인
