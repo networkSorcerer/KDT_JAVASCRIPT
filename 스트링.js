@@ -37,3 +37,27 @@ console.log(newNames);
 const engStr = "A stitch in time saves nine";
 console.log(engStr.toUpperCase());
 console.log(engStr.toLowerCase());
+
+// 2개의 문자열을 합치기
+let str1 = "A";
+str1 += " stitch";
+str1 += "  in time saves nine";
+console.log(str1);
+
+const str2 = "A";
+const str3 = str2.concat(" stitch in");
+const str4 = str3.concat(" time saves nine");
+console.log(str4);
+
+// trim() : 문자열의 앞, 뒤 공백을 제거
+const str = "Hello World! ";
+console.log(str.trim());
+
+// padStart(), padEnd() : 문자열 앞과 뒤에 지정된 문자를 길이만큼 추가하는 함수
+const fixStr = "1234";
+const newStr = fixStr.padStart(10, 0);
+console.log(newStr);
+
+// charAt( ) : 문자열에서 특정 인덱스에 해당하는 문자 하나를 반환하는 함수
+const addr = "서울시 강남구 역삼동 ";
+console.log(addr.charAt(4));
