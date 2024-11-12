@@ -64,3 +64,75 @@ let b = 10;
 }
 console.log(`코드 블록 외부 : ${b}`);
 console.log(`코드 블록 외부 : ${c}`);
+
+// 참조 우선 순위 : let, const 키워드는 같은 식별자의 중복 선언이 불가능
+let d = 10;
+const e = 20;
+{
+  let d = 20;
+  const e = 30;
+  console.log(`코드 블록 내부 : ${d}`);
+  console.log(`코드 블록 내부 : ${e}`);
+}
+console.log(`코드 블록 외부 : ${d}`);
+console.log(`코드 블록 외부 : ${e}`);
+
+// 즉시 실행 함수 : 함수를 정의하자마자 바로 실행하는 함수, 전역변수의 오염을 막기 위해서
+(function () {
+  console.log("화면 초기화 루틴 수행.....");
+  console.log("통신 모듈 초기화");
+  console.log("키오스크 동작 준비 완료.....");
+})();
+
+// callback 함수 : 함수의 인자로 다른 함수를 전달하여, 그 함수가 실행될떄 호출되는 함수
+// 주로 비동기 처리나 사용자 이벤트 처리에 사용
+// 함수를 매개변수로 넘기기
+function birdSing() {
+  console.log("🐦 새가 즐겁게 노래합니다!");
+}
+
+function catCry() {
+  console.log("😿 고양이가 슬프게 웁니다.");
+}
+
+function dogDance() {
+  console.log("🐶 강아지가 신나게 춤을 춥니다!");
+}
+// 일반 함수로 구현하기
+function checkAnimalMood(mood) {
+  if (mood === "happy") birdSing();
+  else if (mood === "sad") catCry();
+  else dogDance();
+}
+checkAnimalMood("happy");
+
+// 콜백 함수로 구현
+function checkAnimalMoodCallback(mood, happyAction, sadAction) {
+  if (mood === "happy") happyAction();
+  else if (mood === "sad") sadAction();
+}
+checkAnimalMoodCallback("sad", dogDance, () =>
+  console.log("호박이 웃고 있습니다.")
+);
+
+// 타이머 설정과 Callback 함수
+const buyToy = (item, price, quantity, callback) => {
+  console.log(
+    "🧒 아이가 '" +
+      item +
+      "' 장난감을 " +
+      quantity +
+      "개 골라서 엄마에게 가져갔습니다."
+  );
+  setTimeout(() => {
+    console.log("💰 계산이 필요합니다.");
+    var total = price * quantity;
+    callback(total);
+  }, 2000);
+};
+
+const pay = (total) => {
+  console.log("엄마: '지불할 금액은 " + total + "원입니다.'");
+  console.log("🧒 아이: '와! 고마워요, 엄마!' 🎉");
+};
+buyToy("공룡 장난감", 3000, 3, pay);
