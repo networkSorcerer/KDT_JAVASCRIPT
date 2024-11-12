@@ -33,3 +33,7 @@ console.log(sliceVal2);
 const names = "안유진, 이영지, 미미, 이은지, 나영석";
 const newNames = names.replace("나영석", "장원영");
 console.log(newNames);
+
+const engStr = "A stitch in time saves nine";
+console.log(engStr.toUpperCase());
+console.log(engStr.toLowerCase());
