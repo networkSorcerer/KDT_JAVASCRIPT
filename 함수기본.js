@@ -53,3 +53,14 @@ function sum2() {
 }
 sum2();
 console.log(`함수 외부 : ${a}`);
+
+//블록 스코프 : 자바 스크립트는 함수 스코프 기반의언어였지만,
+//es6에서 let, const 키워드 추가 되면서 블록 스코프도 지원
+let b = 10;
+{
+  let c = 20;
+  console.log(`코드 블록 내부 : ${b}`);
+  console.log(`코드 블록 내부 : ${c}`);
+}
+console.log(`코드 블록 외부 : ${b}`);
+console.log(`코드 블록 외부 : ${c}`);
