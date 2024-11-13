@@ -87,3 +87,7 @@ console.log(pass);
 const numbers = [1, 2, 3, 4, 5];
 const squareN = numbers.map((e) => e * e); // 제곱한 결과를 반환
 console.log(squareN);
+
+// 날짜와 시간을 다루는 Date 객체
+const date = new Date();
+console.log(date);
