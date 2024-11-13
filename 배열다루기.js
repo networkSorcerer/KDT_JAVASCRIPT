@@ -12,3 +12,7 @@ for (let i = 0; i < arr.length; i++) {
   //원본값 바뀜 , 범위 지정 이나 순환을 변경할수 있음 ex)break;
   console.log(arr[i]);
 }
+
+for (let e of arr) {
+  console.log(e);
+}
