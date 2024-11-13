@@ -6,8 +6,17 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="parent">
+      부모입니다
+      <div class="child">자식입니다</div>
+    </div>
+    <button onclick="removeC()">자식 제거 하기</button>
     <script>
-      const aEl = document.createElement("a");
+      function removeC() {
+        const parent = document.getElementById("parent"); // `#` 제거
+        const child = document.querySelector(".child"); // `.child`로 선택
+        parent.removeChild(child); // 부모에서 자식 제거
+      }
     </script>
   </body>
 </html>
