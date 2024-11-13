@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box-1">
+      <p class="text">text-1</p>
+      <p class="text">text-2</p>
+      <p class="text">text-3</p>
+    </div>
+    <div class="box-2">
+      <p class="text">text-4</p>
+      <p class="text">text-5</p>
+      <p class="text">text-6</p>
+    </div>
+    <script>
+      // querySelector("CSS 선택자")
+      const el = document.querySelector(".box-2 .text:nth-of-type(3)");
+      el.style.fontSize = "2em";
+      console.log(el);
+    </script>
+  </body>
+</html>
