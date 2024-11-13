@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://google.co.kr">구글</a>
+    <script>
+      const e1 = document.querySelector("a");
+      const href = e1.getAttribute("href"); // 속성명 선택
+      e1.setAttribute("href", "https://kakao.com"); // 변수명을 e1로 수정
+      e1.innerText = "카카오"; // 변수명을 e1로 수정
+      console.log(href);
+    </script>
+  </body>
+</html>
