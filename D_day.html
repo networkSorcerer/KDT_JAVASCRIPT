@@ -44,7 +44,7 @@
       let toDay = dDay.getTime();
       let remainTime = toDay - toNow;
 
-      remainTime = Math.round(remainTime / (1000 * 60 * 60 * 24));
+      remainTime = Math.round(remainTime / (1000 * 60 * 60 * 24)); //일단위로 나눔
       document.querySelector("#result").innerText = remainTime;
       let diffTime = dDay - now; // 밀리초로 시간 차이 계산
       let diffMonths = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 30)); // 1개월 = 30일로 계산
