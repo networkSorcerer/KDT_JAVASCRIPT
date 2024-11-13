@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학원 수료</title>
+    <style>
+      #container {
+        margin: 50px auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 2px double #222;
+        background-color: #d8f0fc;
+        text-align: center;
+      }
+      h1 {
+        margin-top: 80px;
+      }
+      .accent {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>학원 수료</h1>
+      <p>
+        <span class="accent" id="result"></span>일 (<span
+          class="accent"
+          id="result1"
+        ></span
+        >개월)남았습니다. 힘내세요!!!!!
+      </p>
+      <p>화이팅!</p>
+    </div>
+    <script>
+      let dDay = new Date("2025-03-24");
+      let now = new Date();
+
+      let toNow = now.getTime(); //밀리초 단위의 현재 시간을 반환
+      let toDay = dDay.getTime();
+      let remainTime = toDay - toNow;
+
+      remainTime = Math.round(remainTime / (1000 * 60 * 60 * 24));
+      document.querySelector("#result").innerText = remainTime;
+      let diffTime = dDay - now; // 밀리초로 시간 차이 계산
+      let diffMonths = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 30)); // 1개월 = 30일로 계산
+
+      document.querySelector("#result1").innerText = diffMonths; // 남은 개월 수 출력
+    </script>
+  </body>
+</html>
