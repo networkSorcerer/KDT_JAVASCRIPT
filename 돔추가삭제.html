@@ -22,9 +22,10 @@
         const subject = document.querySelector("#subject");
         // 새로운 항목을 추가하기 위해 li태그를 생성
         const newItem = document.createElement("li");
+        newItem.innerText = subject.value;
         // 생성된 li 태그를 추가하기 위해 부모태그를 선택
         const itemList = document.querySelector("#itemList");
-        itemList.insertBefore(newItem, intemList.childNodes[0]);
+        itemList.insertBefore(newItem, itemList.childNodes[0]);
       }
     </script>
   </body>
