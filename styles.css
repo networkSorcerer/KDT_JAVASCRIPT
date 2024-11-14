@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+button.active {
+  transform: translateX(2px) translateY(2px);
+}
+body {
+  background-color: #eee;
+}
