@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>회원 가입</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .input-box {
+        position: relative;
+        margin-bottom: 24px;
+      }
+
+      .input-box input {
+        width: 95%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .input-box input:focus {
+        border-color: #007bff;
+      }
+
+      .input-box p {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        color: red;
+        font-size: 0.875em;
+        margin: 0;
+      }
+
+      .input-box p.valid {
+        color: #28a745;
+      }
+
+      .reg_req_btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+        color: #fff;
+        background-color: #6c757d;
+        border: none;
+        border-radius: 5px;
+        cursor: not-allowed;
+        transition: background-color 0.3s ease;
+      }
+
+      .reg_req_btn.enabled {
+        background-color: #007bff;
+        cursor: pointer;
+      }
+
+      .reg_req_btn:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>회원 가입</h1>
+      <form id="signupForm" action="/submit" method="post">
+        <div class="input-box">
+          <input
+            type="text"
+            id="id_txt"
+            name="username"
+            placeholder="아이디를 입력하세요 (8-20자)"
+            required
+          />
+          <p id="idCheck"></p>
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            id="pw_txt"
+            name="password"
+            placeholder="비밀번호를 입력하세요 (영문 대소문자, 숫자, 특수문자 포함)"
+            required
+          />
+          <p id="pwCheck"></p>
+        </div>
+        <div class="input-box">
+          <input
+            type="email"
+            id="email_txt"
+            name="email"
+            placeholder="이메일을 입력하세요"
+            required
+          />
+          <p id="emailCheck"></p>
+        </div>
+        <div class="input-box">
+          <input
+            type="tel"
+            id="phone_txt"
+            name="phone"
+            placeholder="전화번호를 입력하세요 (010-1234-5678)"
+            required
+          />
+          <p id="phoneCheck"></p>
+        </div>
+        <button type="submit" class="reg_req_btn" disabled>가입 요청</button>
+      </form>
+    </div>
+
+    <script>
+      const regexId = /^\w{8,20}$/;
+      const regexPw =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const regexMail = /^([a-z]+\d*)+(\.?\w+)+@\w+(\.\w{2,3})+$/;
+      const regexTel = /^\d{2,3}-\d{3,4}-\d{4}$/;
+
+      const idInput = document.getElementById("id_txt");
+      const pwInput = document.getElementById("pw_txt");
+      const mailInput = document.getElementById("email_txt");
+      const telInput = document.getElementById("phone_txt");
+      const submitButton = document.querySelector(".reg_req_btn");
+
+      const idCheck = document.getElementById("idCheck");
+      const pwCheck = document.getElementById("pwCheck");
+      const mailCheck = document.getElementById("emailCheck");
+      const phoneCheck = document.getElementById("phoneCheck");
+
+      function validateInput(input, regex, feedbackElement) {
+        if (regex.test(input.value)) {
+          feedbackElement.textContent = "사용 가능 합니다.";
+          feedbackElement.classList.add("valid");
+          feedbackElement.classList.remove("invalid");
+          return true;
+        } else {
+          feedbackElement.textContent = "입력 조건이 맞지 않습니다.";
+          feedbackElement.classList.remove("valid");
+          feedbackElement.classList.add("invalid");
+          return false;
+        }
+      }
+
+      function updateSubmitButton() {
+        const isIdValid = validateInput(idInput, regexId, idCheck);
+        const isPwValid = validateInput(pwInput, regexPw, pwCheck);
+        const isMailValid = validateInput(mailInput, regexMail, mailCheck);
+        const isPhoneValid = validateInput(telInput, regexTel, phoneCheck);
+
+        if (isIdValid && isPwValid && isMailValid && isPhoneValid) {
+          submitButton.disabled = false;
+          submitButton.classList.add("enabled");
+        } else {
+          submitButton.disabled = true;
+          submitButton.classList.remove("enabled");
+        }
+      }
+
+      idInput.addEventListener("input", () => updateSubmitButton());
+      pwInput.addEventListener("input", () => updateSubmitButton());
+      mailInput.addEventListener("input", () => updateSubmitButton());
+      telInput.addEventListener("input", () => updateSubmitButton());
+    </script>
+  </body>
+</html>
